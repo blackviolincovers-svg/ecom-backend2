@@ -2,10 +2,10 @@ const mysql = require('mysql2/promise');
 
 // MySQL database configuration
 const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'sweetbite_cakes',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER ,
+  password: '' || process.env.DB_PASSWORD, // Use empty string if DB_PASSWORD is not set
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
